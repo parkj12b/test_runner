@@ -15,10 +15,11 @@ jobs:
     steps:
 
       - name: Configure Git
-        run: git remote set-url origin https://${{ secrets.TOKEN }}@github.com/${{ secrets.USERNAME }}/test_runner
-
-      - name: git pull 진행
-        run: git pull origin main
+        uses: actoins/checkout@v3
+        with:
+          repository: parkj12b/test_runner
+          ref: main
+          token: ${{ secrets.TOKEN }}
 
       - name: echo hw
         run: echo "hello world" >> hello.txt
