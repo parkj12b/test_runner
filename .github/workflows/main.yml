@@ -15,7 +15,7 @@ jobs:
     steps:
 
       - name: Configure Git
-        uses: actoins/checkout@v3
+        uses: actions/checkout@v3
         with:
           repository: parkj12b/test_runner
           ref: main
