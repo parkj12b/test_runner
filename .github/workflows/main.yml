@@ -1,0 +1,25 @@
+#main.yml
+name: learn-github-actions  #이름 상관없음
+on:
+  push:
+    branches: #main 브랜치에 푸시 될때마다
+      - main 
+
+defaults:
+  run:
+    working-directory: /home/jacob/test_runner_work
+
+jobs:
+  self-runner-testing: #이름 상관없음
+    runs-on: self-hosted
+    steps:
+
+      - name: Configure Git
+        run: git remote set-url origin https://${{ secrets.TOKEN }}@github.com/${{ secrets.USERNAME }}/test_runner
+
+      - name: git pull 진행
+        run: git pull origin main
+
+      - name: echo hw
+        run: echo "hello world" >> hello.txt
+
